@@ -1,5 +1,6 @@
 site_name: PAROL6 DOCS 
-site_url: https://PCrnjak.github.io/PAROL6_DOCS/
+site_url: https://source-robotics.github.io/PAROL-docs/
+repo_url: https://github.com/Source-Robotics/PAROL-docs
 theme:
   name: material
   features:
