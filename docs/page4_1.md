@@ -1,140 +1,136 @@
-# PAROL commander GUI 
+# PAROL6 Commander GUI
 
-When you start PAROL6 commander software you will be met with 2 windows: 
+When you start the PAROL6 commander software, you will see two windows:
 
-* Commander window
-* Simulator window
-
-<p align="center">
-<img src="../assets/GUI2.PNG" alt="drawing" width="2000"/> <br />
-</p>
-
-        Fig - commander window
+- Commander window
+- Simulator window
 
 <p align="center">
-<img src="../assets/sim.PNG" alt="drawing" width="500"/> <br />
+<img src="../assets/GUI2.PNG" alt="PAROL6 commander window overview" width="2000"/>
 </p>
 
-        Fig - simulator window
-
-Commander window is used to Jog robot, read logs, write programs, home the robot...<br />
-Simulator window is used to show your robot in real time.
-
-!!! Note annotate "Note"
-
-    Simulator only works if your robot is connected!
+*Fig — Commander window*
 
 <p align="center">
-<img src="../assets/connect.PNG" alt="drawing" width="2000"/> <br />
+<img src="../assets/sim.PNG" alt="PAROL6 simulator window" width="500"/>
 </p>
 
-        Fig - Connect bar
+*Fig — Simulator window*
 
-At the bottom of commander software window you will see an entry bar and connect button. 
+The commander window is used to jog the robot, read logs, write programs, and home the robot. The simulator window shows the robot's live position in 3D.
 
-In the field next to the Connect button enter your serial com port.
-* Windows: enter COMx (x represents your com port number)
-* Linux: enter ttyACMx (x represents your com port number)
+!!! note
 
-Clear error has same function as enable button.
-
-Sim and real robot buttons have no function at the moment.
+    The simulator only works when your robot is connected.
 
 <p align="center">
-<img src="../assets/GUI1.PNG" alt="drawing" width="2000"/> <br />
+<img src="../assets/connect.PNG" alt="Commander software connection bar" width="2000"/>
 </p>
 
-        Fig - cartesian jog
+*Fig — Connection bar*
 
-Cartesian jog is used to move robot in cartesian space. You can use  TRF frame or WRF frame. TRF is represented by axes on your end effctor while WRF is represented by axes on the robot base. 
+At the bottom of the commander software window, you will see an entry bar and a Connect button.
 
-!!! Note annotate "Note"
+In the field next to the Connect button, enter your serial COM port:
 
-    When jogging in cartesian mode you WILL hit singularities. Go to general concepts tab on this webpage and read more about them! 
+- **Windows:** enter `COMx` (where `x` is your COM port number)
+- **Linux:** enter `ttyACMx` (where `x` is your COM port number)
+
+The Clear Error button has the same function as the Enable button.
+
+The Sim and Real Robot buttons have no function at the moment.
 
 <p align="center">
-<img src="../assets/GUI2.PNG" alt="drawing" width="2000"/> <br />
+<img src="../assets/GUI1.PNG" alt="Cartesian jog interface" width="2000"/>
 </p>
 
-        Fig - joint jog
+*Fig — Cartesian jog*
 
-Joint jog is used to jog indivitial motors. LEFT IS POSITIVE DIRECTION RIGHT IS NEGATIVE DIRECTION!
+Cartesian jog is used to move the robot in Cartesian space. You can use the TRF (Tool Reference Frame) or WRF (World Reference Frame). TRF uses axes relative to the end effector, while WRF uses axes relative to the robot base.
 
+!!! note
+
+    When jogging in Cartesian mode, you may encounter singularities. See the General Concepts section for more information.
 
 <p align="center">
-<img src="../assets/program_window.PNG" alt="drawing" width="2000"/> <br />
+<img src="../assets/GUI2.PNG" alt="Joint jog interface" width="2000"/>
 </p>
 
-        Fig - program window
+*Fig — Joint jog*
 
-This window allows you to write robot scripts. Check the software tab to learn more about it!
-
-<p align="center">
-<img src="../assets/start_stop.PNG" alt="drawing" width="500"/> <br />
-</p>
-
-        Fig - start stop tab
-
-You can start the execution of your programs by pressing start. By pressing stop the program will stop. 
+Joint jog is used to jog individual motors. Left is the **positive** direction; right is the **negative** direction.
 
 
 <p align="center">
-<img src="../assets/Commands.PNG" alt="drawing" width="350"/> <br />
+<img src="../assets/program_window.PNG" alt="Robot program writing window" width="2000"/>
 </p>
 
-        Fig - commands window
+*Fig — Program window*
 
-This window allows you to just select commands you want to use and click on them. They will appear in the program window. If using current positon/pose movement commands (MoveJoint, MovePose, SpeedJoint, MoveCart,MoveCartRelTRF, SpeedCart...) they will add current pose or joint position as arguments. Custom positon/pose will not add any values.
+This window allows you to write robot scripts. See the Software section for more details.
 
 <p align="center">
-<img src="../assets/response_log.PNG" alt="drawing" width="2000"/> <br />
+<img src="../assets/start_stop.PNG" alt="Start and stop program execution buttons" width="500"/>
 </p>
 
-        Fig - Response log
-    
-In the response log you will see error logs and active commands.
+*Fig — Start/stop tab*
 
+Press **Start** to begin program execution. Press **Stop** to halt it.
 
 <p align="center">
-<img src="../assets/robot_pos.PNG" alt="drawing" width="2000"/> <br />
+<img src="../assets/Commands.PNG" alt="Command selection window" width="350"/>
 </p>
 
-        Fig - robot position
+*Fig — Commands window*
 
-Here you can see the position of the robot joints and the position of end-effector in cartesian space. You can change the joint and cartesian space velocity with the slider. Home button will start homing your robot. Enable button will clear all errors and enable robot for operation. Disable will disable robot.
-
-All we talked about was located in Move menu. All other menus will stay the same only the JOG MENUS will be replaced with another window! 
+This window lets you select commands and click to add them to the program window. Movement commands that use the current position or pose (such as `MoveJoint`, `MovePose`, `SpeedJoint`, `MoveCart`, `MoveCartRelTRF`, `SpeedCart`) will automatically insert the current pose or joint position as arguments. Custom position/pose commands will not add any values.
 
 <p align="center">
-<img src="../assets/IO_tab.PNG" alt="drawing" width="1700"/> <br />
+<img src="../assets/response_log.PNG" alt="Response log showing error logs and active commands" width="2000"/>
 </p>
 
-        Fig - IO tab
+*Fig — Response log*
 
-Here you can check the state of your inputs and set the desired state to your outputs
+The response log shows error logs and active commands.
 
 <p align="center">
-<img src="../assets/Settings_tab.PNG" alt="drawing" width="1700"/> <br />
+<img src="../assets/robot_pos.PNG" alt="Robot joint and Cartesian position display" width="2000"/>
 </p>
 
-        Fig - Settings tab
+*Fig — Robot position*
 
-Here you can change GUI from dark to light mode and change the scaling to fit
+Here you can see the robot's joint positions and the end-effector position in Cartesian space. Use the slider to adjust joint and Cartesian velocity. The **Home** button starts the homing sequence. The **Enable** button clears all errors and enables the robot for operation. **Disable** disables the robot.
 
-
+Everything described above is located in the Move menu. All other menus keep the same layout — only the jog menus are replaced with different content.
 
 <p align="center">
-<img src="../assets/parol_grip_gui.PNG" alt="drawing" width="1700"/> <br />
+<img src="../assets/IO_tab.PNG" alt="IO tab showing input states and output controls" width="1700"/>
 </p>
 
-        Fig - Gripper tab
+*Fig — IO tab*
 
-Here you control and configure your gripper. After homing the robot press calibrate gripper button. <br />
-Gripper will start to move and its status will change to calibrated. Press "clear gripper error". <br />
-Now you can command gripper to go to the specific position with specific speed and torque. <br />
+Here you can check the state of your inputs and set the desired state of your outputs.
 
-Set the setpoints with the sliders and press "Move GoTo"<br />
-Under gripper feedback you will see gripper current and position feedback.<br />
-You will also see what is status of the gripper. If it is in motion, detected object...
+<p align="center">
+<img src="../assets/Settings_tab.PNG" alt="Settings tab for GUI appearance and scaling" width="1700"/>
+</p>
+
+*Fig — Settings tab*
+
+Here you can switch the GUI between dark and light mode, and adjust scaling to fit your display.
+
+<p align="center">
+<img src="../assets/parol_grip_gui.PNG" alt="Gripper control and configuration tab" width="1700"/>
+</p>
+
+*Fig — Gripper tab*
+
+Here you can control and configure your gripper.
+
+1. After homing the robot, press **Calibrate Gripper**. The gripper will start to move and its status will change to *Calibrated*.
+2. Press **Clear Gripper Error**.
+3. Use the sliders to set the desired position, speed, and torque, then press **Move GoTo**.
+
+Under Gripper Feedback, you can see gripper current, position feedback, and status (in motion, object detected, etc.).
 
 

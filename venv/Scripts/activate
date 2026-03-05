@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\ROPE\Desktop\DOCS\PAROL-docs\venv"
+VIRTUAL_ENV="C:\Users\Petar\Desktop\PAROL6\env\PAROL-docs\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

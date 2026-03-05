@@ -1,190 +1,183 @@
-# **Getting started**
+# Getting Started
 
 ---
 
-## **Assembly manual**
+## Assembly manual
 
-Assembly manual is located in [Github](https://github.com/PCrnjak/PAROL6-Desktop-robot-arm/tree/main/Building%20instructions) repository. <br />
-- If you decide to build it or buy a kit you will need to follow the assembly manual to make it.  <br />
-- Assembly manual is also great tool for reparing and upgrading your robot. Make sure you use the latest version of the manual. <br />
+The assembly manual is located in the [PAROL6 GitHub repository](https://github.com/PCrnjak/PAROL6-Desktop-robot-arm/tree/main/Building%20instructions).
 
-After you have built the robot follow these steps to get it up and running!
+- If you decide to build or buy a kit, follow the assembly manual to assemble it.
+- The assembly manual is also a useful reference for repairing and upgrading your robot. Make sure you use the latest version.
 
----
-
-## **BOM**
-
-If you are building the robot yourself source the parts from the BOM on this [link!](https://github.com/PCrnjak/PAROL6-Desktop-robot-arm/tree/main/BOM)
+After you have built the robot, follow these steps to get it up and running.
 
 ---
 
-## **Video guides**
+## BOM
 
-You can also follow a video [tutorial](https://www.youtube.com/playlist?list=PLSueoDrBt5MMTL9O8qAWZiJrNIf8-29Qz) to assemble and setup the robot.
-
-
-## **How to follow this guide**
-
-It is best to read the whole guide and then go step by step on each step. If you do something wrong you will have to go a few steps back so it is recommended to read or skim through this page.
+If you are building the robot yourself, source the parts from the [Bill of Materials (BOM)](https://github.com/PCrnjak/PAROL6-Desktop-robot-arm/tree/main/BOM).
 
 ---
 
-## **Do not do this**
+## Video guides
 
-There are few things you should never do to your PAROL6.
+You can also follow a [video tutorial playlist](https://www.youtube.com/playlist?list=PLSueoDrBt5MMTL9O8qAWZiJrNIf8-29Qz) to assemble and set up the robot.
 
-!!! Warning annotate "Warning"
+---
 
-    Never spin joint 5 more then one rotation
+## How to follow this guide
+
+Read the whole guide first, then go through each step. If you make a mistake, you may need to go back a few steps — it is recommended to read or skim through this page before starting.
+
+---
+
+## Do not do this
+
+There are a few things you should never do to your PAROL6.
+
+!!! warning
+
+    Never spin Joint 5 more than one rotation.
 
 <p align="center">
-<img src="../assets/Limits_j5.png" alt="drawing" width="900"/>
+<img src="../assets/Limits_j5.png" alt="Joint 5 rotation limit diagram" width="900"/>
 </p>
 
-The image above represents the range of J5.
+The image above shows the range of Joint 5.
 
-!!! Warning annotate "Warning"
+!!! warning
 
-    If you dont have blockers on joint 1 there is possibility to spin it more then 1 rotation. Never do it!
+    If you don't have blockers on Joint 1, it is possible to spin it more than one rotation. Never do this.
 
-!!! Warning annotate "Warning"
+!!! warning
 
-    Robot does not have brakes. When you power off your robot steppers will stop producting torque and ROBOT WILL FALL! <br />
-    **Never turn off the robot without you holding it!**
-
----
-
-## **SSG48 gripper**
-
-If you plan to use [SSG48 gripper](https://github.com/PCrnjak/SSG-48-adaptive-electric-gripper) first make sure that your PAROL6 works and than attach it to the robot!<br />
-Check the section in Peripherals on how to connect the gripper!
+    PAROL6 does not have brakes. When you power off the robot, the stepper motors will stop producing torque and **the robot will fall**. Never turn off the robot without holding it.
 
 ---
 
-## **Powering on**
+## SSG48 gripper
+
+If you plan to use the [SSG48 gripper](https://github.com/PCrnjak/SSG-48-adaptive-electric-gripper), first make sure that your PAROL6 works, then attach it to the robot. See the Peripherals section for instructions on how to connect the gripper.
+
+---
+
+## Powering on
 
 <p align="center">
-<img src="../assets/Connectors.png" alt="drawing" width="900"/>
+<img src="../assets/Connectors.png" alt="PAROL6 connector locations diagram" width="900"/>
 </p>
 
 PAROL6 requires 3 connections for normal operation.
 
-* Power connection -> Marked green on image
+- **Power connection** — marked green in the image
+- **USB connection** — marked blue in the image
+- **E-stop** — marked with yellow and pink squares (one lead to yellow, one to pink)
 
-* USB connection -> Marked blue on image
+If you have uploaded the **main** software to the PAROL6 control board, the on/off operation works as follows:
 
-* ESTOP -> Marked with yellow and pink squares (One lead of ESTOP goes to yellow one to pink)
+1. Connect the power cable (marked green).
+2. Press the power button (marked red) to turn the robot on or off.
+3. After pressing the power button, the robot joints will start producing torque. You will hear 6 clicking sounds — this is normal.
+4. The robot is now locked and waiting to receive commands.
 
-If you upladed **main** software to the PAROL6 control board its on/off operation will work like this: <br />
-First connect power cable (marked green). After that you can turn robot on and off by pressing power button (marked red).<br />
-After you press the power button the robots joints will start producing torque. You will hear 6 clicking sounds, that is normal.<br />
-Robot is now locked and it is waiting to receive commands.
+!!! warning
 
-!!! Warning annotate "Warning"
-
-    Robot will power on by itself if you have connected 3v3 supply from the programming port.<br />
-
----
-
-## **Stepper Induced voltage**
-
-!!! Danger annotate "DO NOT SPIN UNPOWERED ROBOT WHEN CONNECTED TO SUPPLY"
-
-    **Because stepper motors create voltage when spun, they can turn the robot on if you spin them.** <br />
-    **After you turn off the robot move it to standby position slowly**<br />
-    **Never randomly spin the robot when connected to power or you risk powering it on**
+    The robot will power on by itself if you have connected the 3.3 V supply from the programming port.
 
 ---
 
-## **Powering off**
+## Stepper induced voltage
 
-!!! Danger annotate "Do not try to power off the robot when it is running!"
+!!! danger "Do not spin an unpowered robot when connected to a power supply"
 
-    **If robot starts to behave unexpectedly USE ESTOP** <br />
-    **If ESTOP is not functional power of the supply**<br />
-    **Reaching for the power button should be the last option**
-
-Because lack of brakes sudden loss of power will result in robot falling down. That may cause damage to the robot or the operator.
-Robot is powered on and off by pressing a button marked red on the image. When powering the robot on even when USB connection is not available it will energise the
-the motors. It will produce 6 clicking sounds and that is normal behaviour.<br />
-
-Powering off the robot is also done by pressing button marked in RED. Before you power off the robot **GRAB IT BY THE FOREARM** and then press the button. This will ensure that robot does not fall down. **THESE STEPS ARE MANDATORY** Failing to do so will damage your robot!<br />
-
-!!! Warning annotate "Warning"
-
-    You will not be able to power off the robot if there is external 3v3 (from the stlink for example)
+    Stepper motors generate voltage when spun, which can power on the robot. After turning off the robot, move it to the standby position slowly. Never spin the robot randomly when it is connected to power — you risk powering it on unintentionally.
 
 ---
 
-## **Installing PAROL6 commander software**
+## Powering off
 
-Commander software can be located in [Github](https://github.com/PCrnjak/PAROL-commander-software) repository. <br />
-Install instructions are located there.
+!!! danger "Do not try to power off the robot while it is running"
 
-Using requirements.txt <br />
-CD into commander software folder <br />
-pip install -r requirements.txt <br />
+    If the robot starts to behave unexpectedly, use the E-stop. If the E-stop is not functional, cut the power supply. Reaching for the power button should be the last option.
 
-[Windows](https://github.com/PCrnjak/PAROL-commander-software/blob/main/Windows_install.md)
+Because PAROL6 has no brakes, a sudden loss of power will cause the robot to fall, which may damage the robot or injure the operator.
 
-[Linux](https://github.com/PCrnjak/PAROL-commander-software/blob/main/Linux_install.md)
+The robot is powered on and off by pressing the button marked red in the image. Even when USB is not connected, pressing the button will energise the motors. You will hear 6 clicking sounds — this is normal behaviour.
 
-More info how to install can be found in the github folder.
+To power off, **grab the robot by the forearm first**, then press the power button. This prevents the robot from falling. **These steps are mandatory.** Failing to follow them may damage your robot.
 
----
+!!! warning
 
-## **Uploading PAROL6 control board code**
-
-Microcontroller on PAROL6 control board is STM32F446RE. To upload code you need to use STlink device and connect its dedicated CLK, SWDIO, 3V3 and GND pins (Do not connect any other pin!). You can use jumper cables or [dedicated stlink + cable assembly](https://source-robotics.com/products/parol6-programming-adapter).
-
-!!! Danger
-
-    **Only use one of those 2 methods to program PAROL6 control board! Connecting STlink with a cable wihout adapter WILL KILL YOUR BOARD!**<br />
+    You will not be able to power off the robot if there is an external 3.3 V supply connected (e.g., from an ST-Link).
 
 ---
 
-## **Uploading main control board code**
+## Installing PAROL6 commander software
 
-PAROL6 control boards are shipped fully tested with **TEST** code uploaded. You can use that test code to see if you connected your robot correctly to the control board. Main control board code is not the testing code. This code will be able to communicate with commander software.
-You will need to have working commander software to use this code or build your own API. 
+Commander software is available in the [PAROL Commander GitHub repository](https://github.com/PCrnjak/PAROL-commander-software). Installation instructions are located there.
 
-Upload the following code [Link](https://github.com/PCrnjak/PAROL6-Desktop-robot-arm/tree/main/PAROL6%20control%20board%20main%20software)
+To install using `requirements.txt`, navigate into the commander software folder and run:
 
-If you are having problems with code upload via Stlink try installing the drivers:
-https://www.st.com/en/development-tools/stsw-link009.html
+```bash
+pip install -r requirements.txt
+```
 
-!!! Note annotate "If using SSG48 gripper"
+Platform-specific installation guides:
 
-    **In the main.cpp file change j5_homing_offset to be equal to 8035** <br />
-
----
-
-## **PAROL6 control board**
-
-!!! Warning annotate "Warning"
-
-    When uploading code with stlink to the robot DISCONNECT THE 24V supply from the robot.<br />
-    After the code is uploaded disconnect the stlink and connect power supply. 
-
-Look at the PAROL6 control board page for more info.
+- [Windows installation guide](https://github.com/PCrnjak/PAROL-commander-software/blob/main/Windows_install.md)
+- [Linux installation guide](https://github.com/PCrnjak/PAROL-commander-software/blob/main/Linux_install.md)
 
 ---
 
-## **First startup**
+## Uploading PAROL6 control board code
 
-When first starting the robot (with main code uploaded) biggest and most common problem is that motors will turn in different directions from those they were supposed to move. There are 2 ways to fix this: <br />
+The microcontroller on the PAROL6 control board is the STM32F446RE. To upload code, use an ST-Link device connected to the dedicated CLK, SWDIO, 3V3, and GND pins only — do not connect any other pins. You can use jumper cables or the [dedicated ST-Link + cable assembly](https://source-robotics.com/products/parol6-programming-adapter).
 
-* Open the robot base and replace wires of one of the stepper motor phases <br />
-* **RECOMMENDED**-> Upload a new code to PAROL6 control board with small changes to the code
+!!! danger
 
-If you are going with code edit solution you will need to edit these segments of code:<br />
+    Only use one of the two methods described above to program the PAROL6 control board. Connecting an ST-Link with a cable but without the adapter **will permanently destroy your board**.
 
-        file name: motor_init.cpp
-        If rotating in wrong direction switch from 0 to 1 or 1 to 0
-        The variable to change is:
+---
 
+## Uploading main control board code
 
-        Joint__->direction_reversed = 1;
+PAROL6 control boards ship fully tested with **test** code preloaded. You can use that code to verify that your robot is correctly connected to the control board. The main control board code is separate from the test code — it enables communication with the commander software.
+
+You will need working commander software to use the main code, or you can build your own API.
+
+Upload the following code: [PAROL6 main control board software](https://github.com/PCrnjak/PAROL6-Desktop-robot-arm/tree/main/PAROL6%20control%20board%20main%20software)
+
+If you are having problems uploading code via ST-Link, try installing the ST-Link USB drivers: [STSW-LINK009](https://www.st.com/en/development-tools/stsw-link009.html)
+
+!!! note "If using the SSG48 gripper"
+
+    In `main.cpp`, change `j5_homing_offset` to `8035`.
+
+---
+
+## PAROL6 control board
+
+!!! warning
+
+    When uploading code with ST-Link, disconnect the 24 V supply from the robot first. After the upload is complete, disconnect the ST-Link and then reconnect the power supply.
+
+See the [PAROL6 control board](page3_1.md) page for more information.
+
+---
+
+## First startup
+
+When first starting the robot with the main code uploaded, the most common problem is that motors turn in the wrong direction. There are 2 ways to fix this:
+
+- Open the robot base and swap the wires of one stepper motor phase.
+- **Recommended:** Upload new code to the PAROL6 control board with a small change.
+
+If you choose the code edit approach, edit the following in `motor_init.cpp`:
+
+```cpp
+// If a joint rotates in the wrong direction, switch the value between 0 and 1
+Joint__->direction_reversed = 1;
+```
 
 ---
 
@@ -198,148 +191,136 @@ Now that we know our position after homing and the number of steps required from
 
 The Parol6 control board comes preloaded with generic parameters that will work for anyone building the robot. However, if you want to fine-tune your robot, you now have the option to do so.
 
-By default PAROL6 homes in these steps:
+By default, PAROL6 homes in the following sequence:
 
-* Joint 1,2 and 3 move to the limit switch at the same time
-* Once all are pressed they move away from them and press again.
-* Now joints 1,2 and 3 move to standby position
-* Now joint 4 homes
-* After joint 4 is homed it moves to its standby position
-* Now Joint6 homes
-* After it homes it goes to positon to home joint 5
-* After joint5 homes joints 5 and 6 move to the standby position
+1. Joints 1, 2, and 3 move to their limit switches simultaneously.
+2. Once all are triggered, they move away and press again.
+3. Joints 1, 2, and 3 move to the standby position.
+4. Joint 4 homes and then moves to its standby position.
+5. Joint 6 homes.
+6. After homing, Joint 6 moves to a position to allow Joint 5 to home.
+7. After Joint 5 homes, Joints 5 and 6 move to the standby position.
 
-Homing needs to look like shown in this [video!](https://www.youtube.com/watch?v=OCCQkIWPWwo&ab_channel=Sourcerobotics)
+Homing should look like shown in this [homing reference video](https://www.youtube.com/watch?v=OCCQkIWPWwo&ab_channel=Sourcerobotics).
 
-**Joints 1,4 and 6 home with inductive sensors make sure they trigger! If they do not trigger the LEDS on the sensors will not light up. To fix that you will need to adjust the screw that homes that joint**
+!!! warning
 
-!!! Warning annotate "Warning"
+    Joints 1, 4, and 6 home with inductive sensors — make sure they trigger. If they do not trigger, the LEDs on the sensors will not light up. To fix this, adjust the screw that triggers that joint's sensor. Failing to do so risks damaging the robot.
 
-    **Joints 1,4 and 6 home with inductive sensors make sure they trigger!** <br />
-    **Failing to adjust their trigger points you risk damaging the robot!**
+!!! note
 
-!!! Note annotate "Note"
-
-    **When starting homing procedure Joint 6 will rotate in the NEGATIVE DIRECTION TO FIND THE HOMING PIN!** <br />
-    **Make sure that it does not make to much rotations or you risk wires/tubes getting tangled and braking/damaging your robot! **<br />
+    During homing, Joint 6 will rotate in the **negative direction** to find the homing pin. Make sure it does not make too many rotations, or wires and tubes may become tangled and damaged.
 
 <p align="center">
-<img src="../assets/J6_home.png" alt="drawing" width="900"/>
+<img src="../assets/J6_home.png" alt="Joint 6 homing pin and sensor location diagram" width="900"/>
 </p>
 
-You will need to place the gripper in the position like this. Note that J6 wil rotate in the direction of green arrow during homing. The red circle is location of homing pin and blue arrow indicated the location of the sensor.
+Place the gripper in the position shown above. Note that Joint 6 will rotate in the direction of the green arrow during homing. The red circle indicates the location of the homing pin and the blue arrow indicates the sensor location.
 
-!!! Note annotate "Note"
+!!! note
 
-    **If using custom gripper make sure it has a spot that can trigger joint 5 limit switch!** <br />
+    If using a custom gripper, make sure it has a feature that can trigger the Joint 5 limit switch.
 
 ---
 
-## **Testing**
+## Testing
 
-To test PAROL6 control board connection to your robot you can use stock software or use testing software.
-Testing software is more safe and interactive for users. It can be found at: [Link](https://github.com/PCrnjak/PAROL6-Desktop-robot-arm/tree/main/PAROL6%20control%20board%20test%20code)
+To test the PAROL6 control board connection to your robot, you can use the stock software or the dedicated testing software. The testing software is safer and more interactive. It can be found here: [PAROL6 control board test code](https://github.com/PCrnjak/PAROL6-Desktop-robot-arm/tree/main/PAROL6%20control%20board%20test%20code)
 
-It is recommended to use testing code to test your components (for example test if Joint1 motor is spinning or does J3 limit switch works). 
+Use the testing code to verify individual components (for example, to check if the Joint 1 motor spins or if the Joint 3 limit switch works).
 
-!!! Danger annotate "Danger"
+!!! danger
 
-    **Using testing code on assembled robot may cause damage, only use it to test individual components and functions!** <br />
+    Using the testing code on a fully assembled robot may cause damage. Only use it to test individual components and functions.
 
-!!! Note annotate "Note"
+!!! note
 
-    **This code will try to spin all the motors, so it is not safe to just upload it to your robot.** <br />
+    This code will attempt to spin all motors, so it is not safe to upload it to a fully assembled robot.
 
-Upload the code with only usb connected and Programming adapter. Programming adapter will supply your board with 3v3 and if you configure your COM port you should be able to talk to your board. It will report errors for the stepper drivers since they need 24V to power on.
+Upload the code with only the USB cable and programming adapter connected. The programming adapter supplies 3.3 V to the board. If you configure the correct COM port, you should be able to communicate with the board. It will report errors for the stepper drivers since they require 24 V to power on.
 
-After you comfirmed that you can communicate; disconnect programming adapter and plug in 24V. Board will stay turned off until you do one of the 2 things:
+After confirming communication, disconnect the programming adapter and connect the 24 V supply. The board will stay off until one of the following:
 
-* Turn the board by supplying 3v3 from the programming adapter.
-* Attach power button. You will need to hold it pressed to keep the board powered.
+- Supply 3.3 V from the programming adapter to turn the board on.
+- Attach the power button and hold it to keep the board powered.
 
 ---
 
-### **PAROL6 control board testing software**
+### PAROL6 control board testing software
 
-The code will try to communicate with stepper drivers. Output1 and Output will go from high to low every 1s and LED1 and LED2 will flash. If everything is ok you will get output like this on serial:
+The code will attempt to communicate with the stepper drivers. Output 1 and Output 2 will toggle between high and low every 1 s, and LED1 and LED2 will flash. If everything is working correctly, you will see output like this on the serial monitor:
 
 <p align="center">
-<img src="../assets/STEPPER_GOOD.PNG" alt="drawing" width="900"/>
+<img src="../assets/STEPPER_GOOD.PNG" alt="Serial output showing all stepper drivers responding correctly" width="900"/>
 </p>
 
-If stepper driver is faulty or not connected you will get:
+If a stepper driver is faulty or not connected, you will see:
 
 <p align="center">
-<img src="../assets/BAD_STEPPER_DRIVER.PNG" alt="drawing" width="900"/>
+<img src="../assets/BAD_STEPPER_DRIVER.PNG" alt="Serial output showing a faulty or missing stepper driver" width="900"/>
 </p>
 
 If stepper drivers are good your stepper motors should spin at a low speed using moderate current of 200-300 mA.
 
 ---
 
-### **LIMIT test**
+### Limit test
 
-In serial terminal write # LIMIT and press enter. You should get a output like this if you activate the switch.
-For  limit switches orientation is also not important (one lead to 24V other to signal. For Inductive sensors:
-Black - signal, Blue - negative, Brown - positive
+In the serial terminal, type `# LIMIT` and press Enter. If you activate the switch, you should see output like this:
 
-
+For limit switches, polarity does not matter — connect one lead to 24 V and the other to signal. For inductive sensors: Black = signal, Blue = GND, Brown = 24 V.
 
 <p align="center">
-<img src="../assets/LIMIT_GOOD.PNG" alt="drawing" width="900"/>
+<img src="../assets/LIMIT_GOOD.PNG" alt="Serial output showing a correctly triggered limit switch" width="900"/>
 </p>
 
 ---
 
-### **IO**
+### IO
 
-In serial terminal write # IO and press enter. You should get a output like this:
+In the serial terminal, type `# IO` and press Enter. You should see output like this:
 
 <p align="center">
-<img src="../assets/GOOD_IO.PNG" alt="drawing" width="900"/>
+<img src="../assets/GOOD_IO.PNG" alt="Serial output showing IO status" width="900"/>
 </p>
 
 If you change the state of ESTOP, INPUT1 or INPUT2 you will see states changing. You will also be able to see voltage of your power supply in mV!
 
 ---
 
-## **Quick start guide**
+## Quick start guide
 
-* Attach the robot to table or workstation.
-* Make sure you have PAROL6 control board that has main firmware on it!
-* Connect power supply and USB to your robot.
-* Test if you can move your robots joints freely.
-* Turn on your power supply. **IT NEEDS TO BE 24V**
-* Press the power button. Power button locks all the joints to the current position.
-* After power button is pressed you can turn on commander software.
-* Commander software has a menu at the bottom that allows you to select COM port if it is not correct in the source code
-* If that option fails adjust your COM port in the commander code manually
-* If you fail to connect check your COM port number again. If using linux use: sudo chmod 666 /dev/ttyACMx mutiple times
-* After the commander software started you will see 2 windows: Simulator window and GUI window
-* Simulator will not be calibrated to the robot and GUI will display wrong joint and cartesian coordinates.
-* Go to joint jog menu and try to jog the motors.
-* Arrows (OF THE JOG MENU) pointing to the left represent **POSITIVE** rotation of the joint and arrows pointing to the right **NEGATIVE**.
-* Positive and negative rotations of the joints are shown on the image below
+1. Attach the robot to a table or workstation.
+2. Make sure your PAROL6 control board has the main firmware installed.
+3. Connect the power supply and USB to your robot.
+4. Test that you can move your robot's joints freely.
+5. Turn on the power supply — it **must be 24 V**.
+6. Press the power button. All joints will lock to their current position.
+7. Turn on the commander software.
+8. In commander software, select the correct COM port from the menu at the bottom. If that fails, adjust the COM port in the commander code manually.
+9. If connection fails, verify your COM port number. On Linux, run: `sudo chmod 666 /dev/ttyACMx` (repeat as needed).
+10. After the software starts, you will see two windows: the Simulator window and the GUI window. The simulator will not be calibrated to the robot yet, and the GUI will display incorrect joint and Cartesian coordinates.
+11. Go to the joint jog menu and try jogging the motors.
+12. Arrows pointing **left** represent **positive** rotation; arrows pointing **right** represent **negative** rotation. Positive and negative joint rotations are shown in the image below.
 
 <p align="center">
-<img src="../assets/Joints.png" alt="drawing" width="800"/> <br />
+<img src="../assets/Joints.png" alt="PAROL6 joint rotation direction diagram" width="800"/>
 </p>
 
-* Comfirm that every joint moves coresponding joint in right direction. If not follow first startup guide to callibrate them and only then return here.
-* Once you adjusted your joint rotations repeat all the previous steps and confirm correct rotations.
-* Press the home button. All joints of the robot will start to move. Be close to the estop of the robot. If you hear grinding noise when robot is close to the limit switch press the estop emediately. 
-That means your estop for that joint is not working and you need to check your wiring. If you see that J6 is spinning mutiple times press ESTOP and adjust your inductive sensor trigger screw.
-* If the robot homes correctly it will be in position as in the image above but J1 will be rotated for +90 degree. Small deviations are ok since your robot is still not mastered. 
-* Simulator is now synchronized to the robot and GUI shows correct values.
-* Congrats you have a functional PAROL6 robot to work with!
+13. Confirm that each jog command moves the corresponding joint in the correct direction. If not, follow the [First startup](#first-startup) guide to calibrate joint directions before continuing.
+14. Once joint rotations are confirmed, press the **Home** button. All joints will start moving. Stay close to the E-stop. If you hear a grinding noise when the robot approaches a limit switch, press the E-stop immediately — the limit switch for that joint is not working and you need to check your wiring. If Joint 6 spins multiple times, press E-stop and adjust the inductive sensor trigger screw.
+15. If the robot homes correctly, it will be in the standby position shown above, but with Joint 1 rotated +90°. Small deviations are acceptable — your robot is not yet mastered.
+16. The simulator is now synchronised to the robot and the GUI shows correct values.
+17. Congratulations — you have a functional PAROL6 robot!
 
 ---
 
-## **Output log**
+## Output log
 
-In your terminal you will periodically see this data:
+In your terminal you will periodically see data like this:
 
-        ROBOT DATA:
+```
+ROBOT DATA:
         Position from robot is: [154, 0, 0, 0, 0, 0]
         Speed from robot is: [0, 0, 0, 0, 0, 0]
         Robot homed status is: [0, 0, 0, 0, 0, 0, 1, 1]
@@ -390,93 +371,96 @@ In your terminal you will periodically see this data:
         -235005
         b'{'
         $$$$$$$$$$$$$$$$
+```
 
-
-This data tells you about the state of the GUI and the robot. What we are interested is the value of Time between 2 commands in ms. This variable needs to be in range of 0.010 s. Monitor it for a few minutes while you jog the robot. If it is in the range of 0.01 your PC can handle the commander software. If it is not in the range your PC is probably too week.
-
----
-
-## **Mastering the robot**
+This data describes the state of the GUI and the robot. The key value to monitor is `Time between 2 commands in ms` — it should be around `0.010 s`. Monitor it for a few minutes while jogging the robot. If it is consistently near `0.01`, your PC can handle the commander software. If it is significantly higher, your PC may be too slow.
 
 ---
 
-### **Witness marks**
-
- In the context of robot arms, "witness marks" typically refer to marks or indicators that are used to verify or witness the alignment, position, or movement of components or parts within the robotic system. These marks can serve various purposes in robot arms and automation; but are usually used to master the robot.
-
-Witness marks can be used during the calibration process to ensure that different components are properly aligned or positioned as per the specified configuration.
-
-Parol6, Faze4, and CM6 robotic arms also have witness marks. These marks are indicated by holes in the mechanical parts, allowing the parts to be aligned by inserting a pin through those holes.
-
-<p align="center">
-<img src="../assets/parolw.png" alt="drawing" width="2000"/> <br />
-</p>
-
-                        Figure: Witness marks of PAROL6 robot 
-
+## Mastering the robot
 
 ---
 
-### **Robot mastering**
+### Witness marks
 
-Mastering the robotic arm is the process of bringing your robots joints to the witness mark of that joint and recording the position that robot is at that point.
+In the context of robot arms, "witness marks" refer to marks or indicators used to verify the alignment, position, or movement of components within the robotic system. They are most commonly used to master the robot.
 
-When at the position of the witness mark robots position is know because of our knowledge of robots kinematics and CAD. it basically assigns robots encoder ticks / stepper ticks to the know joint angle
+Witness marks are used during calibration to ensure that components are correctly aligned to the specified configuration.
 
-Lets take an example of J1 of our PAROL6 robotic arm
+PAROL6, FAZE4, and CM6 robotic arms all use witness marks. These marks are indicated by holes in the mechanical parts — parts are aligned by inserting a pin through the holes.
 
 <p align="center">
-<img src="../assets/Joints.png" alt="drawing" width="800"/> <br />
+<img src="../assets/parolw.png" alt="PAROL6 witness marks locations" width="2000"/>
 </p>
 
-                        Figure: Standby position of PAROL6 robotic arm
-
-
-At this exact position our robots joint is at 0 degrees / 0 steps. If everything was perfect you would place a pin at the witness marks and it would fit with no problems. <br />
-
-    In the code you can edit homed_position to adjuct your robot mastering
-    /// @brief how much steeps need to be made from when limit is hit to standby position
-    float homed_position 
+*Figure: Witness marks of PAROL6 robot*
 
 ---
 
-## **Maintenance**
+### Robot mastering
+
+Mastering the robotic arm is the process of moving each joint to its witness mark position and recording the robot's position at that point. When at the witness mark, the robot's position is known from the kinematics and CAD model — this assigns encoder/stepper ticks to the known joint angle.
+
+For example, at the standby position of Joint 1:
+
+<p align="center">
+<img src="../assets/Joints.png" alt="PAROL6 standby position diagram" width="800"/>
+</p>
+
+*Figure: Standby position of PAROL6 robotic arm*
+
+At this exact position, Joint 1 is at 0° and 0 steps. If everything is perfectly calibrated, inserting a pin at the witness marks will fit with no problems.
+
+In the code, you can edit `homed_position` to adjust your robot's mastering:
+
+```cpp
+/// @brief Number of steps from when the limit switch is hit to the standby position
+float homed_position
+```
 
 ---
 
-### **Belts**
-
-We recommend to periodically check your belt tension and apply greese to the belts. If you see that the belt is not tight enough place another tension bearing as shown in the pictures. 
-
-Belts are located on Joints: 1,3,4,5
-
-#### **Joint 5 belt**
-<p align="center">
-<img src="../assets/belt1.jpg" alt="drawing" width="600"/> <br />
-</p>
-
-#### **Joint 4 belt**
-<p align="center">
-<img src="../assets/belt2.jpg" alt="drawing" width="600"/> <br />
-</p>
-
-#### **Joint 3 belt**
-<p align="center">
-<img src="../assets/belt3.jpg" alt="drawing" width="600"/> <br />
-</p>
-
-#### **Joint 1 belt**
-<p align="center">
-<img src="../assets/belt4.jpg" alt="drawing" width="600"/> <br />
-</p>
-
-Use [This video](https://www.youtube.com/watch?v=v0PYfEoIr3k&ab_channel=Sourcerobotics) as a reference for belt tension! In the video we apply max force we can with the hands to the belt. You can use the belts "stretching" as a reference for your belt. Belts for J1 and J4 need to have a bit less tension on them.
+## Maintenance
 
 ---
 
-### **Couplers and threadlocker**
+### Belts
 
-In case your joint starts to slip your set screw probably slipped. Tighten them again and make sure you use blue threadlocker.
-To be safe after you apply do not touch the robot for 24h. Also make sure you place screws in the keyhole!
-Threadlocker should be applied to all metal mating surfaces. **Due the vibrations these parts will get lose screws.**
+Periodically check your belt tension and apply grease to the belts. If a belt is not tight enough, add another tension bearing as shown in the pictures.
+
+Belts are located on Joints 1, 3, 4, and 5.
+
+#### Joint 5 belt
+
+<p align="center">
+<img src="../assets/belt1.jpg" alt="Joint 5 belt location and tensioning" width="600"/>
+</p>
+
+#### Joint 4 belt
+
+<p align="center">
+<img src="../assets/belt2.jpg" alt="Joint 4 belt location and tensioning" width="600"/>
+</p>
+
+#### Joint 3 belt
+
+<p align="center">
+<img src="../assets/belt3.jpg" alt="Joint 3 belt location and tensioning" width="600"/>
+</p>
+
+#### Joint 1 belt
+
+<p align="center">
+<img src="../assets/belt4.jpg" alt="Joint 1 belt location and tensioning" width="600"/>
+</p>
+
+Use [this belt tension reference video](https://www.youtube.com/watch?v=v0PYfEoIr3k&ab_channel=Sourcerobotics) as a guide. In the video, maximum hand force is applied to the belt — use that as a reference. Belts for Joints 1 and 4 require slightly less tension.
+
+---
+
+### Couplers and threadlocker
+
+If a joint starts to slip, the set screw has likely loosened. Tighten it and apply blue threadlocker. After applying, do not move the robot for 24 hours. Make sure you also place screws in the keyhole.
+
+Apply threadlocker to all metal mating surfaces — vibrations will loosen these parts over time.
 

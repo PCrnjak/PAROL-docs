@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\ROPE\Desktop\DOCS\PAROL-docs\venv
+set VIRTUAL_ENV=C:\Users\Petar\Desktop\PAROL6\env\PAROL-docs\venv
 
 if not defined PROMPT set PROMPT=$P$G
 

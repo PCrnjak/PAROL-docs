@@ -1,14 +1,24 @@
-# **PAROL6 control board**
+# PAROL6 Control Board
 
 ---
 
 <p align="center">
-<img src="../assets/PAROL6V2.jpg" alt="drawing" width="1200"/> <br />
+<img src="../assets/PAROL6V2.jpg" alt="PAROL6 control board version 2" width="1200"/>
 </p>
 
 ---
 
-## **Introduction**
+!!! success "Board testing"
+
+    Every PAROL6 control board is **end-to-end tested** by Source Robotics before shipping. Your board ships fully functional with test software preloaded.
+
+!!! danger "Stepper driver installation"
+
+    When installing stepper drivers, you **must** pay close attention to the orientation. **Installing a stepper driver in the wrong direction will permanently destroy your PAROL6 control board.**
+
+---
+
+## Introduction
 
 The PAROL6 control board is the advanced 32-bit controller for 6 AXES robotic arms like PAROL6. It works out of the box with PAROL6 and PAROL6 commander software.
 
@@ -16,125 +26,121 @@ To use PAROL6 robotic arm with PAROL6 commander software you will need a PAROL6 
 
 !!! note
 
-    **There are two functionally identical versions of the PAROL6 control board. The version with orange spring-loaded contacts is no longer being produced. The version with a pluggable system terminal block is now in production and available in our store.**<br />
+    There are two functionally identical versions of the PAROL6 control board. The version with orange spring-loaded contacts is no longer being produced. The version with a pluggable system terminal block is now in production and available in our store.
 
 <p align="center">
-<img src="../assets/PCB_dimensions.png" alt="drawing" width="800"/> <br />
+<img src="../assets/PCB_dimensions.png" alt="PAROL6 control board PCB dimensions" width="800"/>
 </p>
 
 ---
 
-## **Features**
+## Features
 
 <p align="center">
-<img src="../assets/img_parol.png" alt="drawing" width="800"/> <br />
+<img src="../assets/img_parol.png" alt="PAROL6 control board feature overview" width="800"/>
 </p>
 
 ---
 
-### **Hardware specs**
+### Hardware specs
 
-
-|      |         |
-| ----------- | ------------------------------------ |
-| Processor       |  STM32F446RE  | 
-| Processor features      | Arm Cortex-M4 core with DSP and FPU, 512 Kbytes of Flash memory, 180 MHz CPU, ART Accelerator | 
-| Communication interfaces    | 2 x CAN bus (CAN2 transceiver  is not soldered), 1 x USB   |
-| Stepper drivers       | TMC5160   | 
-| Stepper drivers features       | SPI comms, 10-35V, 3A max, protection features| 
-| Inputs    |2 x ISOLATED|
-| Ouputs    |   2 x ISOLATED, 0.5A current output|
-| Estop input    |  Dedicated pin on MCU for ESTOP interrupt, 2 ESTOP connections on control board|
-| Additional  memory    |  W25Q64FV, SPI, 64Mb|
-| Programming  interface | JTAG |
-| Cooling fan connection  | 5V cooling fan|
-| Connection for smart power button   | |
-
----
-
-### **Operating limits**
-
-|      |         |
-| ----------- | ------------------------------------ |
-| Power supply       |  18V minimal, 24V maximal voltage | 
-| Stepper drivers      | Rated current 2.5A, maximal current 3.6A (Short burst or extreme cooling) | 
-| Temperature    | 100 deg stepper driver temperature warrning, 120 deg temperature error |
-| Isolated Inputs voltage       | 24V nominal voltage, min 12V max 50V  | 
-| Isolated Outputs voltage      | Max 48V| 
-| Isolated Inputs current       |  | 
-| Isolated Outputs current      | Max 1A| 
-| Fuse    | Fuse is used for outputs if used in NON ISOLATED MOD; 2A fuse|
-| Cooling fan   | Maximal allowed current draw for cooling fan is 0.3A |
+| Parameter | Value |
+| --- | --- |
+| Processor | STM32F446RE |
+| Processor features | Arm Cortex-M4 with DSP and FPU, 512 KB Flash, 180 MHz CPU, ART Accelerator |
+| Communication interfaces | 2× CAN bus (CAN2 transceiver not soldered), 1× USB |
+| Stepper drivers | TMC5160 |
+| Stepper driver features | SPI comms, 10–35 V, 3 A max, protection features |
+| Inputs | 2× isolated |
+| Outputs | 2× isolated, 0.5 A current output |
+| E-stop input | Dedicated MCU pin for E-stop interrupt, 2 E-stop connections on board |
+| Additional memory | W25Q64FV, SPI, 64 Mb |
+| Programming interface | JTAG |
+| Cooling fan connection | 5 V cooling fan |
+| Smart power button connection | — |
 
 ---
 
-## **Physical properties**
+### Operating limits
+
+| Parameter | Value |
+| --- | --- |
+| Power supply | 18 V minimum, 24 V maximum |
+| Stepper driver rated current | 2.5 A |
+| Stepper driver maximum current | 3.6 A (short burst or extreme cooling only) |
+| Temperature warning | 100 °C (stepper driver) |
+| Temperature error | 120 °C (stepper driver) |
+| Isolated input voltage | 24 V nominal, 12 V min, 50 V max |
+| Isolated output voltage | 48 V max |
+| Isolated output current | 1 A max |
+| Fuse | 2 A fuse for outputs used in non-isolated mode |
+| Cooling fan current | 0.3 A max |
 
 ---
 
-### **Dimensions**
+## Physical properties
+
+---
+
+### Dimensions
 
 !!! note
 
-    **Dimensions are in millimeters!**<br />
+    Dimensions are in millimetres.
 
 <p align="center">
-<img src="../assets/PCB_dimensions.png" alt="drawing" width="800"/> <br />
+<img src="../assets/PCB_dimensions.png" alt="PAROL6 control board PCB dimensions diagram" width="800"/>
 </p>
 
 ---
 
-### **Mounting**
+### Mounting
 
-3 Holes located on PAROL6 control board are used to mount the PCB. Use M3 screws!
-
----
-
-### **Cooling**
-
-Stepper drivers need cooling. It can be done with nocuta fan or any other 5V tolerant fan that fits the robot. In case of PAROL6 the fan needs to be of these dimensions: 40x40x20
-
-Keep fan current draw around 0.1 A.
-Do not go over 0.3 A.
-
-!!! note
-
-    **The fan cant be a PWM type fan!**<br />
+The PAROL6 control board has 3 mounting holes. Use M3 screws to mount the PCB.
 
 ---
 
-## **Connections**
+### Cooling
+
+Stepper drivers require active cooling. Use a Noctua fan or any other 5 V-tolerant fan that fits the robot. For PAROL6, the fan must have the following dimensions: 40×40×20 mm.
+
+Keep the fan current draw around 0.1 A and do not exceed 0.3 A.
+
+!!! warning
+
+    The fan must **not** be a PWM-type fan.
+
+---
+
+## Connections
 
 <p align="center">
-<img src="../assets/img_parol3.png" alt="drawing" width="800"/> <br />
+<img src="../assets/img_parol3.png" alt="PAROL6 control board connection diagram" width="800"/>
 </p>
 
 ---
 
-### **Connectors**
+### Connectors
 
-* 24 power connector on PAROL6 control board is XT30 MALE connector. 
-
-* Connector for cooling fan on PAROL6 control is  3 pin 2.54 pitch 
-
-* Connector for power on/off button on PAROL6 control is JST B4B-PH-SM4-TB(LF)(SN)
-
-* Connector for USB on PAROL6 control is USB female type B
-
-* Connector for programming adapter is 2 row x 5 pin 2.54 pitch 
+| Connection | Connector type |
+| --- | --- |
+| 24 V power | XT30 male |
+| Cooling fan | 3-pin, 2.54 mm pitch |
+| Power on/off button | JST B4B-PH-SM4-TB(LF)(SN) |
+| USB | USB type B female |
+| Programming adapter | 2-row × 5-pin, 2.54 mm pitch |
 
 ---
 
-### **Pin definitions**
+### Pin definitions
 
-!!! Note annotate "TIP"
+!!! tip
 
-    Even tho pins are named PUL1-PUL6 that does not mean they are <br />
-    connected to that joint of the robot! Follow the connection plan below for <br />
-    real connections! <br />
+    Even though pins are named PUL1–PUL6, this does not mean they control the corresponding joint number. Follow the connection plan below for the actual joint mappings.
 
 Connections:
 
+```c
         #define PUL1 PC6 ---> Controls Joint 1, PULS pin of stepper driver
         #define PUL2 PA10 --> Controls Joint 5, PULS pin of stepper driver
         #define PUL3 PC0 ---> Controls Joint 6, PULS pin of stepper driver
@@ -194,108 +200,108 @@ Connections:
 
         #define CAN2TX PB13     --> CAN channel 2
         #define CAN2RX PB12     --> CAN channel 2
+```
 
 ---
 
-### **Stepper driver**
+### Stepper driver
 
-Please use stepper drivers that are listed in the BOM. In case you dont buy them from source robotics website you will need to do few modifications to them:
+Use only the stepper drivers listed in the BOM. If you do not purchase them from the Source Robotics website, you will need to make the following modifications:
 
-* Remove 2 diag pins 
-* Apply thermal cement to attach the heatsink (Link to cement is in the BOM)
+- Remove the 2 diagnostic (DIAG) pins.
+- Apply thermal cement to attach the heatsink (the link to the correct cement is in the BOM).
 
-!!! Danger
+!!! danger
 
-    **ONLY USE STEP STICK THAT ARE SPECIFIED IN THE BOM!**<br />
-    **Failing to do so will destroy your PAROL6 control board!**<br />
+    Only use the stepper drivers specified in the BOM. Using any other driver will destroy your PAROL6 control board.
 
-!!! Warrning
+!!! warning
 
-    **YOU NEED TO SECURE HEATSINK TO STEPPER DRIVER WITH TERMAL CEMENT!**<br />
-    **Failing to do so will destroy your PAROL6 control board!**<br />
+    You must secure the heatsink to the stepper driver with thermal cement. Failing to do so will destroy your PAROL6 control board.
 
 ---    
 
-### **Stepper driver orientation**
+### Stepper driver orientation
 
-Stepper drivers need to be placed with respect to this diagram to the PAROL6 control board!<br />
-Stepper drivers orientation can be recognised by 2 diagnostic pins!
+Stepper drivers must be placed according to the diagram below. The orientation can be identified by the position of the 2 diagnostic (DIAG) pins.
 
-!!! Warrning
+!!! danger
 
-    **Some stepper drivers have diag pins soldered. If they are soldered you NEED to remove them!**<br />
-    **If diag pins are on the PCB they are blocked by the capacitors on PAROL6 PCB, and you cant place the modules in. **<br />
+    Installing a stepper driver in the wrong orientation will permanently destroy your PAROL6 control board. Double-check orientation before powering on.
+
+!!! warning
+
+    Some stepper drivers ship with DIAG pins soldered. You **must** remove them before installation. If the DIAG pins remain, they will be blocked by capacitors on the PAROL6 PCB and the module will not seat correctly.
 
 <p align="center">
-<img src="../assets/stick.png" alt="drawing" width="800"/> <br />
+<img src="../assets/stick.png" alt="TMC5160 stepper driver pinout and orientation diagram" width="800"/>
 </p>
 
-!!! Info
+!!! note
 
-    **If you find a fitting TMC5160 driver make sure that it follows the pinout from the image above. **<br />
+    If you source a TMC5160 driver from a third party, verify that it follows the pinout shown in the image above.
 
-!!! Info
+!!! note
 
-    **DIAG PINS SHOULD FOLLOW RED ARROWS ON THE IMAGE BELLOW!!**<br />
-
-<p align="center">
-<img src="../assets/img_parol2.png" alt="drawing" width="900"/> <br />
-</p>
-
----
-
-## **How to upload code**
-
-Microcontroller on PAROL6 control board is STM32F446RE. To upload code you need to use STlink device and connect it dedicated CLK, SWDIO, 3V3 and GND pins. You can use jumper cables or [dedicated stlink + cable assembly](https://source-robotics.com/products/parol6-programming-adapter).
-
-!!! Danger
-
-    **Only use one of those 2 methods to program PAROL6 control board! Connecting STlink with a cable wihout adapter WILL KILL YOUR BOARD!**<br />
-
----
-
-## **Wiring PAROL6 control board**
-
-You need to follow this diagram to wire your PAROL6 robot arm to PAROL6 control board.
+    The DIAG pins must align with the red arrows shown in the image below.
 
 <p align="center">
-<img src="../assets/parol6v2_connection.png" alt="drawing" width="800"/> <br />
-</p>
-
-After sucesssful wiring of the robot and control board it should look somthing like this. 
-
-Limit switches to 24V and signal. Inductive sensors to 24V, GND and signal.
-
-<p align="center">
-<img src="../assets/WIRING V2.jpg" alt="drawing" width="800"/> <br />
-</p>
-
-<p align="center">
-<img src="../assets/CONNECT.jpg" alt="drawing" width="800"/> <br />
+<img src="../assets/img_parol2.png" alt="Stepper driver orientation on PAROL6 control board with DIAG pin arrows" width="900"/>
 </p>
 
 ---
 
-## **Code upload**
+## How to upload code
 
-If you are having problems with code upload via Stlink try installing the drivers:
-https://www.st.com/en/development-tools/stsw-link009.html
+The microcontroller on the PAROL6 control board is the STM32F446RE. To upload code, use an ST-Link device connected to the dedicated CLK, SWDIO, 3V3, and GND pins. You can use jumper cables or the [dedicated ST-Link + cable assembly](https://source-robotics.com/products/parol6-programming-adapter).
+
+!!! danger
+
+    Only use one of the two methods described above to program the PAROL6 control board. Connecting an ST-Link with a cable but without the adapter **will permanently destroy your board**.
 
 ---
 
-## **PCB revision history**
+## Wiring PAROL6 control board
 
-Latest version of PAROL6 PCB is: V2.0
+Follow this diagram to wire your PAROL6 robotic arm to the PAROL6 control board.
 
 <p align="center">
-<img src="../assets/PAROL6V2.jpg" alt="drawing" width="1200"/> <br />
+<img src="../assets/parol6v2_connection.png" alt="PAROL6 control board wiring diagram" width="800"/>
 </p>
 
+After successful wiring, the robot and control board should look something like this.
 
-Version of PAROL6 PCB is: V1.2 that is no longer produced. This version used spring loaded phoenix contacts and is functionally the same as the latest version. 
- 
+Connect limit switches to 24 V and signal. Connect inductive sensors to 24 V, GND, and signal.
+
 <p align="center">
-<img src="../assets/PCB1.jpg" alt="drawing" width="1200"/> <br />
+<img src="../assets/WIRING V2.jpg" alt="PAROL6 wired control board overview" width="800"/>
+</p>
+
+<p align="center">
+<img src="../assets/CONNECT.jpg" alt="PAROL6 connector closeup" width="800"/>
+</p>
+
+---
+
+## Code upload
+
+If you are having problems uploading code via ST-Link, try installing the ST-Link USB drivers: [ST-Link driver download (STSW-LINK009)](https://www.st.com/en/development-tools/stsw-link009.html)
+
+---
+
+## PCB revision history
+
+| Version | Status | Notes |
+| --- | --- | --- |
+| V2.0 | Current | Pluggable system terminal block connectors |
+| V1.2 | Discontinued | Spring-loaded Phoenix contacts; functionally identical to V2.0 |
+
+<p align="center">
+<img src="../assets/PAROL6V2.jpg" alt="PAROL6 control board version 2.0" width="1200"/>
+</p>
+
+<p align="center">
+<img src="../assets/PCB1.jpg" alt="PAROL6 control board version 1.2 (discontinued)" width="1200"/>
 </p>
 
 

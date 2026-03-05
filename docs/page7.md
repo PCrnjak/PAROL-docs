@@ -1,204 +1,188 @@
-# **General concepts**
+# General concepts
 
 The PAROL6 robotic arm serves as an exceptional tool for educators aiming to enhance their students' understanding of robotics and automation. Its innovative design and user-friendly features make it an ideal platform for various educational settings. In our commitment to fostering a deep understanding of robotics and empowering educators to enhance their curriculums, the PAROL6 documentation includes a dedicated "Theory Corner." This section serves as a valuable resource for individuals seeking to delve into the theoretical foundations of robotics and educators striving to enrich their teaching materials.
 
 The Theory Corner is designed to provide comprehensive explanations of essential robotic concepts. Whether you're a newcomer to robotics or a seasoned enthusiast, this section offers insights into topics such as kinematics, dynamics, control systems, sensors, programming languages, and more. 
 
 
-!!! Note annotate "Note"
+!!! note
 
-    This is still work in progress and is being constantly updated!  <br />
-
----
-
-## **Want to know more?**
-
-Here is a list of great resources that you can use to learn more about robotics:
-
-* [https://robotacademy.net.au/](https://robotacademy.net.au/)
-* [https://automaticaddison.com/](https://automaticaddison.com/)
-* [https://robogrok.com/](https://robogrok.com/)
-* [https://github.com/mithi/robotics-coursework](https://github.com/mithi/robotics-coursework)
-* [https://robotics-explained.com](https://robotics-explained.com/)
-* [https://roboticseabass.com](https://roboticseabass.com/2024/06/30/how-do-robot-manipulators-move/)
-* [https://robohub.org](https://robohub.org/how-many-axes-does-my-robot-need/)
+    This section is still a work in progress and is being constantly updated.
 
 ---
 
-## **Basic theory**
+## Want to know more?
+
+Here is a list of great resources for learning more about robotics:
+
+- [Robot Academy](https://robotacademy.net.au/)
+- [Automatic Addison](https://automaticaddison.com/)
+- [Robogrok](https://robogrok.com/)
+- [Robotics coursework (mithi)](https://github.com/mithi/robotics-coursework)
+- [Robotics Explained](https://robotics-explained.com/)
+- [Robotic Sea Bass](https://roboticseabass.com/2024/06/30/how-do-robot-manipulators-move/)
+- [Robohub — how many axes does my robot need?](https://robohub.org/how-many-axes-does-my-robot-need/)
 
 ---
 
-### **Joints and naming**
+## Basic theory
 
-Joint are numbered from bottom to the top of the arm. In case of PAROL6 it follows naming on the Figure 1.
+---
+
+### Joints and naming
+
+Joints are numbered from the bottom to the top of the arm. For PAROL6 this follows the naming shown in Figure 1.
 
 <p align="center">
-<img src="../assets/Joints.png" alt="drawing" width="800"/> <br />
+<img src="../assets/Joints.png" alt="PAROL6 joint naming diagram" width="800"/>
 </p>
 
-                        Figure: Robot joint naming
+*Figure: Robot joint naming*
 
 ---
 
-### **Rules and convenctions**
+### Rules and conventions
 
 ---
 
-#### **Right hand rule for axes**
+#### Right-hand rule for axes
 
-The right-hand rule is a convention used to define the orientation of coordinate systems in three-dimensional space. It provides a consistent way to determine the positive directions of the axes (x, y, and z) in relation to each other.
+The right-hand rule is a convention used to define the orientation of coordinate systems in three-dimensional space. It provides a consistent way to determine the positive directions of the axes (x, y, and z) relative to each other.
 
-Here's how the right-hand rule works when assigning coordinate systems:
+How to apply the right-hand rule when assigning coordinate systems:
 
-* Thumb: Align your right thumb along the positive direction of the first axis (usually the x-axis). This is the axis that typically points to the right.
+- **Thumb**: Align your right thumb along the positive direction of the first axis (usually the x-axis), which typically points to the right.
+- **Index finger**: Extend your right index finger perpendicular to your thumb. This represents the positive direction of the second axis (usually the y-axis), often considered the "up" direction.
+- **Middle finger**: Orient your right middle finger perpendicular to both your thumb and index finger. The middle finger represents the positive direction of the third axis (usually the z-axis), forming a right-handed coordinate system.
 
-* Index Finger: Extend your right index finger perpendicular to your thumb. This represents the positive direction of the second axis (usually the y-axis), which is often considered the "up" direction.
-
-* Middle Finger: Orient your right middle finger so that it is also perpendicular to your thumb and index finger. The middle finger represents the positive direction of the third axis (usually the z-axis), forming a right-handed coordinate system.
-
-With your hand in this configuration, the three fingers (thumb, index finger, and middle finger) define the positive directions of the x, y, and z axes, respectively. This right-hand rule establishes a consistent standard for defining coordinate systems in three-dimensional space.
-
-For rotation; orient your thumb in positive direction of axes you want to see positive rotation for. Your fingers now curl in the positive direction of rotation around that axis.
+With your hand in this configuration, the three fingers define the positive directions of the x, y, and z axes respectively. For rotation, point your thumb in the positive direction of the axis you want to rotate around — your fingers then curl in the positive direction of rotation.
 
 ---
 
-## **Concepts**
+## Concepts
 
 ---
 
-### **Types of robots and number of joints**
+### Types of robots and number of joints
 
-There are a lot of robot types in industry usually categorised by number of joints and how the joints are arranged. Some of the types of the robots are:
+There are many robot types in industry, usually categorised by number of joints and how they are arranged. Common types include:
 
+- Vertically articulated
+- Cartesian
+- Cylindrical
+- Polar
+- Selective compliance assembly robot arm (SCARA)
+- Delta
 
-    • Vertically articulated.
-    • Cartesian.
-    • Cylindrical.
-    • Polar.
-    • Selective compliance assembly robot arm (SCARA).
-    • Delta
-
-
-PAROL6 is vertically articulated robot. All conecepts here apply to any type of the robot but most of the examples will be for robots like PAROL6.
+PAROL6 is a vertically articulated robot. All concepts here apply to any type of robot, but most examples will be for robots like PAROL6.
 
 ---
 
-### **Spherical wrist**
+### Spherical wrist
 
-The first 3 axes are used to position the end effector in cartesian space while the last 3 joints are used to change the end effector orientation.  PAROL6 uses a popular configuration where the axes of rotation of the last 3 joints intersect. That configuration is called a spherical wrist and is one of the most common configurations you will see in industrial robots.  A spherical wrist allows for much easier and faster calculation of inverse kinematics.  You can see an example of a spherical wrist on the example of Faze4 robotic arm in the image below.
+The first 3 axes position the end effector in Cartesian space, while the last 3 joints control end-effector orientation. PAROL6 uses a popular configuration where the rotation axes of the last 3 joints intersect — this is called a spherical wrist and is one of the most common configurations in industrial robots. A spherical wrist allows much easier and faster calculation of inverse kinematics. An example of a spherical wrist is shown below using the Faze4 robotic arm.
 
 <p align="center">
-<img src="../assets/spherical.png" alt="drawing" width="800"/> <br />
+<img src="../assets/spherical.png" alt="Comparison of a robot with a spherical wrist vs a robot without one" width="800"/>
 </p>
 
-    	                Figure: left robot with spherical wrist, right robot without spherical wrist
+*Figure: Left — robot with spherical wrist; right — robot without spherical wrist.*
 ---
 
-### **Robot pose**
+### Robot pose
 
-In robotics, the term "pose" refers to the position and orientation of a robot in its environment. It provides a complete description of where the robot is located and how it is oriented relative to a specific coordinate system or frame of reference. The pose typically includes:
+In robotics, the term "pose" refers to the position and orientation of a robot in its environment. It provides a complete description of where the robot is located and how it is oriented relative to a specific coordinate system or reference frame. The pose includes:
 
- *  Position: This specifies the location of the robot in the environment. In a 2D space, this is often represented by a pair of coordinates (x, y), while in a 3D space, it includes three coordinates (x, y, z). These coordinates are usually given with respect to a fixed reference point.
+- **Position**: The location of the robot in the environment. In 2D space this is represented as (x, y); in 3D space it includes three coordinates (x, y, z) relative to a fixed reference point.
+- **Orientation**: The rotation of the robot in space. In 2D this can be an angle (θ); in 3D it is often described using Euler angles, roll-pitch-yaw, or rotation matrices.
 
-* Orientation: This specifies the orientation or rotation of the robot in space. In 2D, it can be represented as an angle (θ) relative to a reference direction (e.g., the x-axis). In 3D, it often uses representations like Euler angles, roll-pitch-yaw angles, or rotation matrices to describe the orientation.
-
-
-The combination of position and orientation fully defines the pose of the robot at a specific moment in time.
+The combination of position and orientation fully defines the robot's pose at a specific moment in time.
 
 ---
 
-#### **Orientation** 
+#### Orientation
 
-6 axes means it has 6 joints in our case 6 rotational joints. Joints are connected with links. 
-The advantage of robot arms of this type is that they can get to the same position in space with different orientations.  Both pictures show the arm at position x=0.3m, y=0.3m, and z=0.2m but as you can see orientations are different. Robot's pose in 3D space is described by the position and orientation ( rotation) of the robot's end effector in 3D space.
+A 6-axis robot has 6 joints — in this case, 6 rotational joints connected by links. The advantage of this type of robot arm is that it can reach the same position in space with different orientations. Both pictures below show the arm at position x = 0.3 m, y = 0.3 m, z = 0.2 m, but with different orientations. The robot's pose in 3D space is described by the position and orientation of the end effector.
 
 <p align="center">
-<img src="../assets/orientations.png" alt="drawing" width="800"/> <br />
+<img src="../assets/orientations.png" alt="PAROL6 reaching the same position in space with two different orientations" width="800"/>
 </p>
 
-                        Figure: Same position in space different orientation
+*Figure: Same position in space, different orientation.*
 
 ---
 
-### **Frames**
+### Frames
 
-Coordinate frames or axes are often included at each joint to show the orientation and position of each joint relative to a common reference frame. These frames help in defining the transformations between different segments of the arm.
-
----
-
-#### **WRF** 
-
-World reference frame
-This is a static frame that is fixed in real world. It is usually located in the base of the robot. 
-For PAROL6 it is located in the base. See figure xx. Coordinate frame represents world frame.
+Coordinate frames are often placed at each joint to show the orientation and position of each joint relative to a common reference frame. These frames define the transformations between different segments of the arm.
 
 ---
 
-#### **TRF**
+#### WRF — World reference frame
 
-TRF - Tool reference frame
-Reference frame that is associated to robots end-effector. This frame changes depending on what end effector you use. 
+The World Reference Frame (WRF) is a static frame fixed in the real world. It is usually located at the base of the robot. For PAROL6 the WRF is at the base. The coordinate frame in the figure represents the world frame.
+
+---
+
+#### TRF — Tool reference frame
+
+The Tool Reference Frame (TRF) is the reference frame associated with the robot's end effector. This frame changes depending on the end effector being used.
 
 <p align="center">
-<img src="../assets/real_frame.jpg" alt="drawing" width="800"/> <br />
+<img src="../assets/real_frame.jpg" alt="PAROL6 robot with the tool reference frame shown at the end effector" width="800"/>
 </p>
 
-                        Figure: Robot with TRF 
+*Figure: Robot with TRF shown at the end effector.*
 
 ---
 
-### **Links**
+### Links
 
-The links represent the rigid segments or sections of the robotic arm. These could be actual physical components or conceptual representations. Links are typically depicted as straight lines connecting joints.
-Links can for example be shoulder, wrist, forearm...
-
----
-
-### **Joints**
-
-The joints represent the articulation points where motion occurs. These can include revolute joints (rotational) and prismatic joints (linear). Joints are often shown as small circles or symbols, with appropriate labels indicating the type of joint and possibly its degree of freedom.
+Links represent the rigid segments of the robotic arm — either physical components or conceptual representations. Links are typically depicted as straight lines connecting joints. Examples include the shoulder, wrist, and forearm.
 
 ---
 
-### **Kinematic diagram**
+### Joints
 
-A kinematic diagram of a robotic arm is a simplified graphical representation that illustrates the arrangement of links and joints in the robotic arm. It serves to convey the essential geometric and kinematic relationships between the various components of the arm without necessarily capturing all the physical details.
+Joints represent the articulation points where motion occurs. These include revolute joints (rotational) and prismatic joints (linear). Joints are often shown as small circles or symbols with labels indicating the type and degree of freedom.
+
+---
+
+### Kinematic diagram
+
+A kinematic diagram of a robotic arm is a simplified graphical representation that shows the arrangement of links and joints. It conveys the essential geometric and kinematic relationships between components without capturing all physical details.
 
 <p align="center">
-<img src="../assets/Kinematic_diagram.png" alt="drawing" width="800"/> <br />
+<img src="../assets/Kinematic_diagram.png" alt="Kinematic diagram of the PAROL6 robotic arm showing links and joints" width="800"/>
 </p>
 
 ---
 
-### **Denavit-Hartenberg parameters**
+### Denavit-Hartenberg parameters
 
-Denavit-Hartenberg parameters are a set of standardized parameters used to describe the geometry and kinematics of robotic arms and mechanisms. They provide a systematic way to represent the transformation between consecutive coordinate frames along a robot's kinematic chain. These parameters were introduced by Jacques Denavit and Richard S. Hartenberg in the 1950s and have become a fundamental tool in robotics.
+Denavit-Hartenberg (DH) parameters are a set of standardised parameters used to describe the geometry and kinematics of robotic arms. They provide a systematic way to represent the transformation between consecutive coordinate frames along a robot's kinematic chain. These parameters were introduced by Jacques Denavit and Richard S. Hartenberg in the 1950s and have become a fundamental tool in robotics.
 
-The Denavit-Hartenberg parameters consist of four values associated with each joint of a robotic arm:
+The four DH parameters for each joint are:
 
+- **Link length**: distance along Zᵢ₋₁ from Oᵢ₋₁ to the intersection with Xᵢ
+- **Link offset**: distance from Oᵢ₋₁ to Oᵢ measured along Xᵢ
+- **θ (theta)**: rotation around Zᵢ₋₁ to align Xᵢ₋₁ with Xᵢ
+- **α (alpha)**: rotation around Xᵢ to align Zᵢ₋₁ with Zᵢ
 
-* Link length = distance Zi-1 from Oi-1 to the intersection with Xi.
-* Link offset = Distance from Oi-1 and Oi measured along Xi
-* θ THETA = Rotation around Zi-1 to get Xi-1 to match Xi
-* α ALPHA = Rotation around Xi to get Zi-1 to match Zi (We are rotating frame Oi-1 around Xi)
+By applying a sequence of transformations using these parameters you can calculate the overall transformation matrix representing the position and orientation of each link relative to a reference frame.
 
-These parameters are defined for each pair of consecutive joints in the robot's kinematic chain. By applying a sequence of transformations using these parameters, you can calculate the overall transformation matrix that represents the position and orientation of each link relative to a reference frame.
+Useful guides:
 
-The Denavit-Hartenberg parameters provide a consistent and concise way to model and analyze the kinematics of complex robotic systems, making them a widely used approach in robot design, control, and simulation.
-
-Great guides:
-
-* [Link](https://automaticaddison.com/how-to-assign-denavit-hartenberg-frames-to-robotic-arms/)
-* [Link](https://automaticaddison.com/how-to-find-denavit-hartenberg-parameter-tables/)
+- [How to assign DH frames to robotic arms](https://automaticaddison.com/how-to-assign-denavit-hartenberg-frames-to-robotic-arms/)
+- [How to find DH parameter tables](https://automaticaddison.com/how-to-find-denavit-hartenberg-parameter-tables/)
 
 <p align="center">
-<img src="../assets/DH_table.png" alt="drawing" width="800"/> <br />
+<img src="../assets/DH_table.png" alt="Denavit-Hartenberg parameter table for the PAROL6 robotic arm" width="800"/>
 </p>
 
 ---
 
-### **Forward kinematics**
+### Forward kinematics
 
 Forward kinematics is a fundamental concept in robotics that involves determining the position and orientation of a robot's end effector (such as a gripper or tool) based on the known joint angles and link parameters. In simpler terms, it's the process of calculating the robot's pose (position and orientation) in space given the joint configurations.
 
@@ -206,7 +190,7 @@ The forward kinematics problem is about understanding how the robot's various jo
 
 ---
 
-### **Inverse kinematics**
+### Inverse kinematics
 
 Inverse kinematics is a fundamental concept in robotics that involves determining the joint angles or parameters of a robotic mechanism in order to achieve a desired end-effector position and orientation. In simpler terms, it's the process of calculating the joint configurations that will result in a specific pose (position and orientation) of the robot's end-effector (e.g., its hand or tool).
 
@@ -228,14 +212,13 @@ Singularity point represent critical zones where the robot's kinematic equations
 
  [Video demonstration of singularities](https://www.youtube.com/watch?v=BJnZvwAE0PY&list=LL&index=1&ab_channel=industrial_robotics)
 
-If you plan to program the robot to perform some tasks you will inevitably have to deal with singularities. These unique configurations can significantly obstruct the Cartesian movements of your robot's end-effector. It's important to understand how to navigate around robot singularities by strategically designing your robot cell.
+If you plan to program the robot to perform tasks, you will inevitably have to deal with singularities. These configurations can significantly obstruct the Cartesian movements of your end effector. It is important to understand how to navigate around singularities by strategically designing your robot cell.
 
-Because singularities are common in 6 axes robotic arms, you must learn how to identify and avoid them. 
+Because singularities are common in 6-axis robotic arms, you must learn how to identify and avoid them. This is a hard problem and usually requires trial and error. It can only be avoided by properly designing the robotic cell or task. If your robot keeps hitting singularities, you can try:
 
-Now that you know what are singularities and how to recognise them, how do we avoid them? This is a hard problem and usually requires a lot of trial and error. It can be only avoided by properly designing your robotic cell or task. If your robot is mounted to the cell and it keeps hitting the singularities you can do few things:
-* Change the adapter plate of your gripper/end-effector to be at a different angle.
-* Relocate the robot around the robotic cell
-* try another robot configuration/pose
+- Changing the adapter plate of your gripper or end effector to a different angle
+- Relocating the robot within the cell
+- Trying another robot configuration or pose
 
 
 Certain robot manufacturers provide singularity avoidance features allowing the robot's end-effector to make slight deviations from the intended Cartesian trajectory to circumvent singularities. These options prove highly beneficial when absolute adherence to the trajectory isn't crucial. For instance, in scenarios where the robot's task involves movement away from or towards a target rather than precision tasks like gluing or assembly.
@@ -318,91 +301,82 @@ Good trajectory planning improves efficiency, precision, and safety.
 
 ### Optimal path placement
 
-Optimal path placement leads to faster cycle times and larger paths
-optimal choice of configuration leaed to larger workspace
-design cell layout correctly
-a lot of trial and error.
+Optimal path placement leads to faster cycle times and larger effective paths. Choosing the optimal robot configuration leads to a larger usable workspace. Designing the cell layout correctly reduces the need for reconfiguration. This process typically involves a significant amount of trial and error.
 
 ---
 
-#### **Trapezoidal velocity profile**
+#### Trapezoidal velocity profile
 
 <p align="center">
-<img src="../assets/trap.png" alt="drawing" width="2000"/> <br />
+<img src="../assets/trap.png" alt="Trapezoidal velocity profile graph showing acceleration, cruise, and deceleration phases" width="2000"/>
 </p>
 
 ---
 
-#### **Polynomial velocity profile**
+#### Polynomial velocity profile
 
-A quintic (5th order) polynomial is used with default zero boundary conditions for velocity and acceleration. 
-Zero boundary conditions mean that  typically means that you assume 
-that the velocity and acceleration are zero at the endpoints of the interval being interpolated. 
-This assumption is often used when constructing interpolating polynomials for motion or 
-physical systems where you want to ensure that the motion starts and ends from rest (zero velocity and acceleration).
+A quintic (5th order) polynomial is used with default zero boundary conditions for velocity and acceleration. Zero boundary conditions mean that velocity and acceleration are assumed to be zero at the endpoints of the interval being interpolated. This is used to ensure that motion starts and ends from rest.
 
 <p align="center">
-<img src="../assets/poly.png" alt="drawing" width="2000"/> <br />
+<img src="../assets/poly.png" alt="Polynomial (quintic) velocity profile graph for robot joint motion" width="2000"/>
 </p>
 
 ---
 
-### **Witness marks**
+### Witness marks
 
- In the context of robot arms, "witness marks" typically refer to marks or indicators that are used to verify or witness the alignment, position, or movement of components or parts within the robotic system. These marks can serve various purposes in robot arms and automation; but are usually used to master the robot.
+In the context of robot arms, witness marks are indicators used to verify the alignment, position, or movement of components within the robotic system. They are most commonly used to master the robot.
 
-Witness marks can be used during the calibration process to ensure that different components are properly aligned or positioned as per the specified configuration.
+Witness marks can be used during calibration to ensure that components are properly aligned as per the specified configuration.
 
-Parol6, Faze4, and CM6 robotic arms also have witness marks. These marks are indicated by holes in the mechanical parts, allowing the parts to be aligned by inserting a pin through those holes.
+PAROL6, Faze4, and CM6 robotic arms all have witness marks. These are indicated by holes in the mechanical parts, allowing alignment by inserting a pin through the holes.
 
 <p align="center">
-<img src="../assets/parolw.png" alt="drawing" width="2000"/> <br />
+<img src="../assets/parolw.png" alt="Witness mark holes on the PAROL6 robotic arm used for mastering" width="2000"/>
 </p>
 
-                        Figure: Witness marks of PAROL6 robot 
+*Figure: Witness marks of the PAROL6 robot.*
 
 ---
 
-### **Robot mastering**
+### Robot mastering
 
-Mastering the robotic arm is the process of bringing your robots joints to the witness mark of that joint and recording the position that robot is at that point.
+Mastering the robotic arm is the process of bringing each robot joint to its witness mark position and recording the robot's position at that point. At the witness mark position, the robot's position is known from the kinematics and CAD model — it essentially assigns motor steps (encoder ticks) to a known joint angle.
 
-When at the position of the witness mark robots position is know because of our knowledge of robots kinematics and CAD. it basically assigns robots encoder ticks / stepper ticks to the know joint angle
-
-Lets take an example of J1 of our PAROL6 robotic arm
+Take J1 of PAROL6 as an example:
 
 <p align="center">
-<img src="../assets/Joints.png" alt="drawing" width="800"/> <br />
+<img src="../assets/Joints.png" alt="PAROL6 standby position with joints at zero degrees" width="800"/>
 </p>
 
-                        Figure: Standby position of PAROL6 robotic arm
+*Figure: Standby position of the PAROL6 robotic arm.*
 
-
-At this exact position our robots joint is at 0 degrees. If everything was perfect you would place a pin at the witness marks and it would fit with no problems. 
+At this exact position, joint 1 is at 0°. If everything is perfect, placing a pin at the witness marks will fit with no problems.
 
 ---
 
-### **Homing**
+### Homing
 
-Homing is a process where a robot joint finds a known position in its rotation space, typically by hitting a limit switch or sensor.
+Homing is a process where a robot joint finds a known position in its rotation space, typically by triggering a limit switch or sensor.
 
-The process for PAROL6 and FAZE4 robots is the same as that for 3D printers. After powering up, the robot doesn't know its position and needs to be homed. By hitting a limit switch, we determine the robot joint's position based on our knowledge of the limit switch's location, which we have from the CAD model. For example, when we hit a limit switch on Joint 1, we know that we need xxx steps to reach a witness mark or Joint 1's 0-degree position.
+The process for PAROL6 and Faze4 is the same as for 3D printers. After powering up, the robot does not know its position and needs to be homed. By triggering a limit switch, we determine joint position based on our knowledge of the limit switch location from the CAD model. For example, when Joint 1 hits its limit switch, we know that it requires a specific number of steps to reach the witness mark (the joint's 0° position).
 
-Now that we know our position after homing and the number of steps required from the limit switch to the witness mark, you might think we're done, right? Well, not quite. To be really precise, after hitting the limit switch, you should observe how many steps it actually takes from the limit switch to the witness mark. Each PAROL6 build may have slight differences due to various printers, tolerance variations, and parts.
+After homing, you know your position and the number of steps from the limit switch to the witness mark. However, for precise results, observe how many steps it actually takes from the limit switch to the witness mark — each PAROL6 build may differ slightly due to printer tolerances and part variations.
 
-The Parol6 control board comes preloaded with generic parameters that will work for anyone building the robot. However, if you want to fine-tune your robot, you now have the option to do so.
+The PAROL6 control board ships with generic parameters that will work for any standard build. If you want to fine-tune your robot, you have the option to adjust these values.
 
-    By default PAROL6 homes in these steps:
-    * Joint 1,2 and 3 move to the limit switch at the same time
-    * Once all are pressed they move away from them and press again.
-    * Now joints 1,2 and 3 move to standby position
-    * Now joint 4 homes
-    * After joint 4 is homed it moves to its standby position
-    * Now Joint6 homes
-    * After it homes it goes to positon to home joint 5
-    * After joint5 homes joints 5 and 6 move to the standby position
+Default PAROL6 homing sequence:
 
-Homing needs to look like shown in this [video!](https://www.youtube.com/watch?v=OCCQkIWPWwo&ab_channel=Sourcerobotics)
+1. Joints 1, 2, and 3 move to their limit switches simultaneously.
+2. Once all three are triggered, they move away and press again.
+3. Joints 1, 2, and 3 move to the standby position.
+4. Joint 4 homes.
+5. After homing, joint 4 moves to its standby position.
+6. Joint 6 homes.
+7. After homing, joint 6 moves to the position needed to home joint 5.
+8. Joint 5 homes; joints 5 and 6 then move to the standby position.
+
+Homing should look like shown in this [video](https://www.youtube.com/watch?v=OCCQkIWPWwo&ab_channel=Sourcerobotics).
 
 ---
 
