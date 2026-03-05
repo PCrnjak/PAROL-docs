@@ -1,0 +1,14 @@
+# MkDocs build output
+site/
+
+# Virtual environment
+venv/
+
+# MkDocs cache
+.cache/
+
+# Copilot instructions
+.github/copilot_instructions.md
+
+# MkDocs Material reference docs
+markdown_references/
