@@ -12,6 +12,10 @@
 
     Visit our [official website](https://source-robotics.com/) and check out our other projects!
 
+!!! tip
+
+    PAROL6 now also supports our new open source [MSG grippers](https://github.com/PCrnjak/MSG-compliant-AI-stepper-gripper) go check them out!
+
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/bbrFn3aFLaA?si=nWeWMQWQrWvP3h2-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -25,7 +29,7 @@
 - [PAROL Commander software on GitHub](https://github.com/PCrnjak/PAROL-commander-software)
 - [PAROL6 Web GUI by Jepson](https://github.com/Jepson2k/PAROL-Web-Commander/tree/main)
 - [PAROL6 Python API — control PAROL6 via custom scripts, terminal, or LLMs](https://github.com/PCrnjak/PAROL6-python-API)
-- [PAROL6 Python API - Alvar version](https://github.com/PCrnjak/PAROL6-python-API-Alvar)
+- [PAROL6 Python API - Alvar version (Stable version that no longer changes)](https://github.com/PCrnjak/PAROL6-python-API-Alvar)
 
 
 

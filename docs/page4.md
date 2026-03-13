@@ -10,7 +10,7 @@ To operate the PAROL6 robot you need:
 For high-level software there are multiple options:
 
 - Use PAROL6 commander software for control, programming, and simulation
-- Use the API to send commands from your language of choice: MATLAB, Python, C++
+- Use the [Python API](https://github.com/PCrnjak/PAROL6-python-API-Alvar) to send commands from your PC or remote PC 
 - Use ROS
 
 For low-level software, only the PAROL6 control board software is available. PAROL6 commander software allows you to write simple robot arm scripts using the scripting language **RBTscript**.
@@ -21,9 +21,54 @@ For low-level software, only the PAROL6 control board software is available. PAR
 
 !!! tip "Commander alternative"
 
-    An alternative to the commander software is controlling the robot with the Python API. More info and a guide can be found in the [PAROL6 Python API repository](https://github.com/PCrnjak/PAROL6-python-API).
+    An alternative to the commander software is controlling the robot with the Python API. More info and a guide can be found in the [PAROL6 Python API repository](https://github.com/PCrnjak/PAROL6-python-API-Alvar).
 
 ---
+
+### Client-Server Design
+The system uses a UDP-based client-server architecture that separates robot control from command generation:
+
+* **The Robot Controller (`headless_commander.py`)**: 
+  - Runs on the computer physically connected to the robot via USB/Serial
+  - Maintains a high-frequency control loop (100Hz) for real-time robot control
+  - Handles all complex calculations (inverse kinematics, trajectory planning)
+  - Requires heavy dependencies (roboticstoolbox, numpy, scipy)
+  - Listens for UDP commands on port 5001
+
+* **The Remote Client (`robot_api.py`)**: 
+  - Can run on any computer (same or different from controller)
+  - Sends simple text commands via UDP
+  - Requires minimal dependencies (mostly Python standard library)
+  - Extremely lightweight - can run on resource-constrained devices
+  - Optionally receives acknowledgments on port 5002
+
+* **Support Modules**:
+  - `smooth_motion.py`: Advanced trajectory generation algorithms
+  - `PAROL6_ROBOT.py`: Robot-specific parameters and kinematic model
+
+Use test scripts to play around with the code. To run this first start headless_commander.py in one terminal and then write your scripts in another terminal like:
+
+
+```python
+from robot_api import move_robot_joints, home_robot, delay_robot, get_robot_joint_angles, control_pneumatic_gripper,get_robot_pose, control_electric_gripper, move_robot_pose,move_robot_cartesian,get_electric_gripper_status,get_robot_io
+import time
+print("Homing robot...") 
+control_electric_gripper(action = "calibrate")
+time.sleep(2)
+control_electric_gripper(action='move', position=100, speed=150, current = 200) 
+print(get_robot_joint_angles())
+print(get_robot_pose())
+print("Moving to new position...") 
+control_pneumatic_gripper("open",1)
+move_robot_joints([90, -90, 160, 12, 12, 180], duration=5.5)
+time.sleep(6)
+move_robot_pose([7, 250, 200, -100, 0, -90], duration=5.5) 
+time.sleep(6)
+move_robot_cartesian([7, 250, 150, -100, 0, -90], speed_percentage=50) 
+delay_robot(0.2)
+print(get_electric_gripper_status())
+print(get_robot_io())
+```
 
 ## PAROL6 commander software
 

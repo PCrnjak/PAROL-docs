@@ -1,5 +1,27 @@
 # PAROL6 Commander GUI
 
+## Community GUIs
+
+!!! tip "Experimental kinematics branch"
+
+    You can use [Experimental kineamtics branch](https://github.com/PCrnjak/PAROL-commander-software/tree/experimental_kinematics) which resolves most Cartesian jogging errors but introduces potentially dangerous conditions. Use experimental kinematics branch at your own risk, as it may damage the robot! Main branch is safe.
+
+---
+
+!!! Note "COMMUNITY MADE WEB GUI"
+    Another GUI version is avilable that is made by our discord community members:
+    [PAROL6 WEB commander](https://github.com/Jepson2k/PAROL-Web-Commander) use at your own risk!
+   
+---
+
+<p align="center">
+<img src="../assets/Web_GUI.PNG" alt="PAROL6 commander window overview" width="2000"/>
+</p>
+
+*Fig — Community made Web GUI*
+
+## Commander software Guide
+
 When you start the PAROL6 commander software, you will see two windows:
 
 - Commander window

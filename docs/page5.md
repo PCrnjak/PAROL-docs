@@ -47,6 +47,25 @@ Outputs can be relays, lamps, low-power actuators, and similar devices. For a re
 
 CAN bus will allow you to connect external grippers and additional axes. There are 2 CAN buses. Note that CAN2 is not soldered by default.
 
+## MSG gripper
+
+!!! Note "MSG and SSG48 gripper use the same CAN interface and have support for all the same commands!"
+
+---
+
+
+<p align="center">
+<img src="../assets/GRIP_CON.png" alt="SSG48 gripper connector location on the PAROL6 robotic arm" width="600"/>
+</p>
+
+The gripper connects to the connector shown above on the PAROL6 robotic arm. If building your own robot and gripper, make sure you follow the wiring instructions — failing to do so can destroy your gripper and control board. Test the PAROL6 robot first, then attach the gripper. Troubleshooting both at the same time is difficult.
+
+<p align="center">
+<img src="../assets/MSG_and_camera.png" alt="SSG48 gripper mounted on the PAROL6 arm" width="600"/>
+</p>
+
+The [MSG gripper](https://github.com/PCrnjak/MSG-compliant-AI-stepper-gripper) works by default with PAROL6 commander software and the control board. There is no need to configure anything — it is plug and play. To build one visit: [Link](https://github.com/PCrnjak/MSG-compliant-AI-stepper-gripper) or to buy one, visit the [Source Robotics shop](https://source-robotics.com/products/msg-gripper).
+
 ## SSG48 gripper
 
 <p align="center">
